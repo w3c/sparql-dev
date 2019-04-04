@@ -7,14 +7,20 @@ assignees: ''
 
 ---
 
-** Why?
-Please give a description of why you would like this.
+<!--Please fill in the following template and make sure your title is clear and concisely summarizes the feature.-->
 
-** Previous work
-Links to resources that implement a solution (or part of)
+## Why?
 
-** Proposed solution
-A strawman example to give it something tangible and for illustrative perposes
+<!--Please give a description of why you would like this.-->
 
-** Considerations for backward compatibility
-Can you see any issues with backwards compatibility, no matter how remote
+## Previous work
+
+<!--Links to resources that implement a solution (or part of).-->
+
+## Proposed solution
+
+<!--A strawman example to give it something tangible and for illustrative perposes.-->
+
+## Considerations for backward compatibility
+
+<!--Can you see any issues with backwards compatibility, no matter how remote.-->
