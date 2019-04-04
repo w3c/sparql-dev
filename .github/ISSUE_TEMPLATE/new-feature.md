@@ -1,6 +1,6 @@
 ---
 name: New feature
-about: Suggest an idea for SPARQL 1.1
+about: Suggest an idea for SPARQL 1.2
 title: ''
 labels: ''
 assignees: ''
