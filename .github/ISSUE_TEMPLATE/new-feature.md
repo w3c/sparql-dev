@@ -19,7 +19,7 @@ assignees: ''
 
 ## Proposed solution
 
-<!--A strawman example to give it something tangible and for illustrative perposes.-->
+<!--A straw man example to give it something tangible and for illustrative purposes.-->
 
 ## Considerations for backward compatibility
 
