@@ -1,4 +1,4 @@
-= SEP (SPARQL Enhancement Proposal) area
+# SEP (SPARQL Enhancement Proposal) area
 
 This area cotains the proposals (SEPs).
 
