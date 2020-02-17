@@ -9,7 +9,7 @@ assignees: ''
 
 **Idea to improve SEP YYY**
 
-**Describe the improvent**
+**Describe the improvement**
 A clear and concise description of what the improvement is.
 
 **Additional context**
