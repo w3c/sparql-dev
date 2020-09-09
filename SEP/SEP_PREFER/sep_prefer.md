@@ -23,70 +23,47 @@ While technically possible in SPARQL 1.1. We would like to have an easier to wri
 Given the requirement to select labels/properties in languages in an order of user preference we currently need to use the lang() and langmatches() functions either in a series of optional blocks with tests for boundness, or a subselect with an ordering.
 
 
-``sparql
+```sparql
 SELECT 
-
-?thing 
-
-?label
-
+  ?thing 
+  ?label
 WHERE {
-
-    OPTIONAL {
-
+  OPTIONAL {
     ?thing rdfs:label ?label .
-
     FILTER(langMatches(lang(?label), “fr”)
-
-}
-
-OPTIONAL {
-
+  }
+  OPTIONAL {
     FILTER(! BOUND(?label))
-
     ?thing rdfs:label ?label .
-
     FILTER(langMatches(lang(?label), “en”)
-
-}
-
-FILTER(BOUND(?label) && BOUND(?thing))
-
+  }
+  FILTER(BOUND(?label) && BOUND(?thing))
 }
 ```
 Gives an example of the use with the optional solution.
-```
-SELECT  ?thing ?label
-
+```sparql
+SELECT
+  ?thing
+  ?label
 WHERE
-
-{ { SELECT  ?thing ?label ?order
-
-       WHERE
-
-         { VALUES ( ?lang ?order ) {
-
+{ { 
+ SELECT  
+   ?thing 
+   ?label 
+   ?order
+ WHERE
+ { VALUES ( ?lang ?order ) {
              ( "fr" 1 )
+             ( "en" 2 )}
+   ?thing  rdfs:label  ?label
+   FILTER langMatches(lang(?label), ?lang)
+ }
 
-             ( "en" 2 )
-
-           }
-
-           ?thing  rdfs:label  ?label
-
-           FILTER langMatches(lang(?label), ?lang)
-
-         }
-
-       GROUP BY ?thing ?label ?order
-
-       ORDER BY ?order
-
-       LIMIT   1
-
-     }
-
-   }
+ GROUP BY ?thing ?label ?order
+ ORDER BY ?order
+ LIMIT   1
+ }
+ }
 ```
 
 
@@ -120,21 +97,15 @@ WHERE
 We will also introduce a second new keyword `ACCEPTLANG`, to refer to taking the order from the accept-lang http header provided by the client and a new shorthand for testing if a value has a matching language string `hasLang(?label, "EN")`.
 
 
-```
-SELECT ?label 
-
+```sparql
+SELECT 
+  ?label 
 WHERE
-
 {
-
   [] rdfs:label PREFER(?label FROM hasLang(?label, "FR"),
-
                                    hasLang(?label, "EN"), 
-
                                    hasLang(?label, "NL"),
-
-                  hasLang(?label, ACCEPTLANG)) .
-
+                                   hasLang(?label, ACCEPTLANG)) .
 }
 ```
 
@@ -142,15 +113,12 @@ WHERE
 With a special shorthand
 
 
-```
-SELECT ?label 
-
+```sparql
+SELECT 
+  ?label 
 WHERE
-
 {
-
   [] rdfs:label PREFERLANG(?label, "FR", "EN", "NL", ACCEPTLANG)) .
-
 }
 ```
 
@@ -158,21 +126,16 @@ WHERE
 The `PREFER` keyword introduces a new complexity for query engines to implement. While it does not introduce new complexity in terms of query expressiveness, the practical impact on the query engines is not small. Specifically it introduces a new manner to introduce an ad-hoc sorted join and reduction. On the other hand, `PREFER` is a general solution that works on any effective boolean value providing function. For example one can write
 
 
-```
-SELECT ?label 
-
+```sparql
+SELECT 
+  ?label 
 WHERE
-
 {
-
   [] rdfs:label PREFER(?label FROM "cafe au lait"@FR == ?label, "cappuccino"@EN == ?label, "koffie verkeerd"@NL == ?labe, strlen(?label)<20) .
-
 }
 ```
 
-
 The word `FROM` is selected because it indicates that assignment is in the unusual direction. 
-
 
 A not addressed concern is where would `PREFER` be allowed? Only in the object position or would we allow it in the subject or predicate of the BGPs.
 
