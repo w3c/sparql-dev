@@ -139,6 +139,18 @@ The word `FROM` is selected because it indicates that assignment is in the unusu
 
 A not addressed concern is where would `PREFER` be allowed? Only in the object position or would we allow it in the subject or predicate of the BGPs.
 
+
+The use of a PREFERLANG or PREFER operation does not change the data type of the returned values.
+```sparql
+SELECT 
+  ?label (lang(?label) AS ?languageOfLabel)
+WHERE
+{
+  [] rdfs:label PREFERLANG(?label, "FR", "EN", "NL", ACCEPTLANG)) .
+}
+```
+In this case the `?languageOfLabel` will contain the language of the selected variable.
+
 ## Thoughts about query efficiency
 
 There is a potential for query engines to optimise this kind of query if they can already push down filters on values lower into the stack.
