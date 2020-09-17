@@ -4,6 +4,8 @@
 
 ## SEP number
 
+Discussion: SPARQL-12 Issue #??
+
 ## Authors
 The people active in contributing content.
 
