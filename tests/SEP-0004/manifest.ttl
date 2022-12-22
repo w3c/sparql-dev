@@ -1,0 +1,52 @@
+## Distributed under both the "W3C Test Suite License" [1]
+## and the "W3C 3-clause BSD License".
+## [1] https://www.w3.org/Consortium/Legal/2008/04-testsuite-license
+## [2] https://www.w3.org/Consortium/Legal/2008/03-bsd-license
+
+PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mf:     <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#>
+PREFIX qt:     <http://www.w3.org/2001/sw/DataAccess/tests/test-query#>
+PREFIX dawgt:  <http://www.w3.org/2001/sw/DataAccess/tests/test-dawg#>
+PREFIX test:   <http://www.w3.org/2001/sw/DataAccess/tests/>
+PREFIX trs:    <https://w3c.github.io/rdf-star/tests/sparql/eval#>
+PREFIX dct:    <http://purl.org/dc/terms/>
+PREFIX xsd:    <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+
+<> rdf:type mf:Manifest ;
+    rdfs:label "SEP-0004 tests"@en ;
+    dct:licence <https://www.w3.org/Consortium/Legal/2008/03-bsd-license> ;
+    dct:creator [ foaf:homepage <https://w3c.github.io/sparql-12/> ; foaf:name "SPARQL 1.2 Community Group" ] ;
+    mf:entries
+    (
+        <#from-default>
+        <#from-default-and-graph>
+        <#graph-default>
+    ) .
+
+<#from-default> rdf:type mf:QueryEvaluationTest ;
+    mf:name "It is possible to use FROM DEFAULT to query the default graph" ;
+    mf:action [
+       qt:query <from-default.rq> ;
+       qt:data <data.ttl>
+    ] ;
+    mf:result <from-default.srj>  .
+
+<#from-default-and-graph> rdf:type mf:QueryEvaluationTest ;
+    mf:name "It is possible to use FROM DEFAULT with an other FROM <graph> to query the default graph" ;
+    mf:action [
+       qt:query <from-default-and-graph.rq> ;
+       qt:data <data.ttl>
+    ] ;
+    mf:result  <from-default-and-graph.srj>  .
+
+<#graph-default> rdf:type mf:QueryEvaluationTest ;
+    mf:name "It is possible to use GRAPH DEFAULT to target the default graph" ;
+    mf:action [
+       qt:query <graph-default.rq> ;
+       qt:data <data.ttl>
+       qt:graphData <g1.ttl>
+    ] ;
+    mf:result  <graph-default.srj>  .
