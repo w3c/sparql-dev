@@ -35,7 +35,7 @@ PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
     mf:result <from-default.srj>  .
 
 <#from-default-and-graph> rdf:type mf:QueryEvaluationTest ;
-    mf:name "It is possible to use FROM DEFAULT with an other FROM <graph> to query the default graph" ;
+    mf:name "It is possible to use FROM DEFAULT with another FROM <graph> to query the default graph" ;
     mf:action [
        qt:query <from-default-and-graph.rq> ;
        qt:data <data.ttl>
