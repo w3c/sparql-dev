@@ -24,6 +24,7 @@ PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
         <#from-default>
         <#from-default-and-graph>
         <#graph-default>
+        <#graph-default-and-from>
     ) .
 
 <#from-default> rdf:type mf:QueryEvaluationTest ;
@@ -50,3 +51,11 @@ PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
        qt:graphData <g1.ttl>
     ] ;
     mf:result  <graph-default.srj>  .
+
+<#graph-default-and-from> rdf:type mf:QueryEvaluationTest ;
+    mf:name "GRAPH DEFAULT targets the query dataset and not the store dataset" ;
+    mf:action [
+       qt:query <graph-default-and-from.rq> ;
+       qt:data <data.ttl>
+    ] ;
+    mf:result  <graph-default-and-from.srj>  .
