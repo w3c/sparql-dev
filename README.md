@@ -1,7 +1,7 @@
-# SPARQL 1.2 Community Group
+# SPARQL Dev Community Group
 
-Welcome to the [SPARQL 1.2 Community Group](https://www.w3.org/community/sparql-12/) github repository.
+Welcome to the [SPARQL-dev Community Group](https://www.w3.org/community/sparql-dev/) github repository.
 
-[Mailing list archive](https://lists.w3.org/Archives/Public/public-sparql-12/).
+[Mailing list archive](https://lists.w3.org/Archives/Public/public-sparql-dev/).
 
-There are a lot of [issues](https://github.com/w3c/sparql-12/issues) being worked on and also have a look at the [wiki](https://github.com/w3c/sparql-12/wiki)
+There are a lot of [issues](https://github.com/w3c/sparql-dev/issues) being worked on and also have a look at the [wiki](https://github.com/w3c/sparql-dev/wiki)

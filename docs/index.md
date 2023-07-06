@@ -1,7 +1,7 @@
 ---
 layout: null
-title: SPARQL 1.2 Community Group
+title: SPARQL-dev Community Group
 ---
-This is the github pages home for the "[SPARQL 1.2 Community Group](https://www.w3.org/community/sparql-12/)"
+This is the github pages home for the "[SPARQL-dev Community Group](https://www.w3.org/community/sparql-dev/)"
 
-[Github respository](https://githuib.com/w3c/sparql12/)
+[Github respository](https://githuib.com/w3c/sparql-dev/)
