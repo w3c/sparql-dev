@@ -1,0 +1,1 @@
+SELECT ?s WHERE { GRAPH <./g1> { GRAPH DEFAULT { ?s ?p ?o } } }
