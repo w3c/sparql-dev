@@ -13,3 +13,5 @@ This area contains the proposals (SEPs).
 * [SEP-0006](SEP-0006/sep-0006.md): LATERAL Join
 * [SEP-0007](SEP-0007/sep-0007.md): Variable Substitution
 * [SEP-0008](SEP-0008/sep-0008.md): SHA-3
+* [SEP-0009](SEP-0009/sep-0009.md): SPARQL CDTs: extensions for composite datatypes (lists and maps)
+
